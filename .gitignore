@@ -3,3 +3,7 @@ dist/
 mythic.egg-info/
 mythic/.DS_Store
 mythic/__pycache__/
+__pycache__
+.mypy_cache
+.pytest_cache
+config.yml
