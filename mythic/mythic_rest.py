@@ -2076,6 +2076,16 @@ class Mythic:
             resp.response = Payload(**resp.response)
         return resp
 
+    async def generate_mod_rewrite(self, target_uuid: str) -> MythicResponse:
+        url = f'{self.http}{self.server_ip}:{self.server_port}/api/v{self.server_api_version}/redirect_rules_webhook'
+        resp = await self.post_json(url, data={'input': {'uuid': target_uuid}})
+        print(resp)
+        if resp.response_code != 200:
+            raise Exception(resp)
+        return resp.response['output']
+
+
+
     async def create_payload(
         self,
         payload: Payload,
